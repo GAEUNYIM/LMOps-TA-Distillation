@@ -28,7 +28,7 @@ DISTRIBUTED_ARGS="--nproc_per_node $GPUS_PER_NODE \
                   --tee 3"
 
 # model
-BASE_PATH=${1-"/home/gaeunyim/LMOps/minillm"}
+BASE_PATH=${1-"/scratch/gaeunyim/LMOps-TA-Distillation/MiniLLM"}
 CKPT_NAME="init-gpt2-340M"
 CKPT="${BASE_PATH}/checkpoints/${CKPT_NAME}"
 TEACHER_CKPT_NAME="gpt2-760M"

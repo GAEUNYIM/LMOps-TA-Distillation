@@ -5,7 +5,7 @@ This project is a replication of the [MiniLLM](https://arxiv.org/abs/2306.08543)
 
 In addition to replicating the training process of MiniLLM, this project further improves its performance by incorporating the [TAKD](https://arxiv.org/abs/1902.03393) (Teacher Assistant Knowledge Distillation) framework. One of the most critical challenges in knowledge distillation from a teacher model to a student model is the significant performance degradation due to the limited number of parameters in the student model compared to the teacher. To address this, the TAKD approach introduces an intermediate model, known as the Teacher Assistant (TA), which has fewer parameters than the teacher but more than the student. By using the TA model as a bridge, TAKD performs multi-stage distillation, which helps transfer knowledge more effectively and mitigates the capacity gap between teacher and student models.
 
-## 1. Environmental Setup
+## Part 1. Environmental Setup
 1. Connect to the server with GPUs.
 We will use [DRAC](https://alliancecan.ca/en/search?keywords=ssh) (Digital Alliance Canada Cluster) to run this experiment. Create your account, and connect to server with ssh to use GPU by following the instruction of the website.
 2. Create your own virtual environment in the server.
@@ -16,7 +16,7 @@ source ~/{ENV_NAME}/bin/activate # ✅ TODO everyday: Always activate this env 
 pip install --no-index --upgrade pip
 ```
 
-## 2. Replication of MiniLLM (Teacher -> Student)
+## Part 2. Replication of MiniLLM (Teacher -> Student)
 1. Clone this repository in your own path.
 ```
 git clone https://github.com/GAEUNYIM/LMOps-TA-Distillation.git
@@ -57,7 +57,7 @@ cd {BASE_PATH}/results/gpt2/train/minillm
 sbatch {BASE_PATH}/LMOps-TA-Distillation/MiniLLM/scripts/gpt2/eval/eval_main_dolly_{TEACHER_SIZE}_to_{STUDENT_SIZE}.sh
 ```
 
-## 3. Application of MiniLLM with TAKD (Teacher -> TA -> Student)
+## Part 3. Application of MiniLLM with TAKD (Teacher -> TA -> Student)
 In this part, you will train student models with TA models, but not teacher model. TA model will also be trained from teacher model.
 (Prerequisite) Download the pre-existing checkpoints.
 ```
@@ -81,10 +81,26 @@ sbatch {BASE_PATH}/LMOps-TA-Distillation/MiniLLM/scripts/gpt2/ours/ours_train_gp
 ```
 sbatch {BASE_PATH}/LMOps-TA-Distillation/MiniLLM/scripts/gpt2/eval/eval_main_dolly_{TA_SIZE}_to_{STUDENT_SIZE}.sh
 ```
-## 4. Results
+## Part 4. Results
+The table below shows the experiment results of Part 2 and Part 3. 
+- Experiment 2.A ~ 2.D showed similar results with the original paper ( +,- 0.2 of R-L Scores).
+- Experiment 3.A ~ 3.D showed applying TA model between teacher model and student model can results better R-L socre than without applyint TA model.
+  - 3.A showed that the student model of 340M results 26.3 R-L Score by distilling knowledge through one TA (760M) model, which is greater than the student model of 340M from 2.C showed 25.4 R-L Score with direct distillation.
+  - 3.B showed that the student model of 340M results 27.2 R-L Score by distilling knowledge through one TA (760M) model, which is greater than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
+  - 3.C showed that the student model of 340M results 27.0 R-L Score by distilling knowledge through one TA (340M) model, which is greater than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
+  - 3.D showed that the student model of 120M results 24.1 R-L Score by distilling knowledge through two TA (760M, and 340M) models, which is less than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation. 
+| ExpID | Teacher Size | TA 1 Size | TA 2 Size | Student Size | R-L Score (paper) | R-L Score (experiment) |
+|-------|--------------|-----------|-----------|--------------|-------------------| -----------------------|
+| 2.A   | 1.5B         | -         | -         | -            | 27.6              | 27.4                   |
+| 2.B   | 1.5B         | -         | -         | 760M         | 26.4              | 26.5                   |
+| 2.C   | 1.5B         | -         | -         | 340M         | 25.4              | 25.2                   |
+| 2.D   | 1.5B         | -         | -         | 120M         | 24.6              | 24.6                   |
+| 3.A   | 1.5B         | 760M      | -         | 340M         | None              | 26.3                   |
+| 3.B   | 1.5B         | 760M      | -         | 120M         | None              | 27.2                   |
+| 3.C   | 1.5B         | 340M      | -         | 120M         | None              | 27.0                   |
+| 3.D   | 1.5B         | 760M      | 340M      | 120M         | None              | 24.1                   |
 
-
-## 5. Analysis
+## Part 5. Analysis
 Provide insightful explanations, any differences
 
-## 6. Discussion
+## Part 6. Discussion

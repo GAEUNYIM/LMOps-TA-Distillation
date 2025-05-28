@@ -5,8 +5,8 @@
 #SBATCH --time=10:00:00
 #SBATCH -c 16
 #SBATCH --mem=64G
-#SBATCH --output=/home/gaeunyim/LMOps/minillm/results/gpt2/train/gpt2_logs/760_to_340_2.out 
-#SBATCH --error=/home/gaeunyim/LMOps/minillm/results/gpt2/train/gpt2_logs/error/760_to_340_2.out 
+#SBATCH --output=/home/gaeunyim/LMOps/minillm/results/gpt2/train/gpt2_logs/760_to_340.out 
+#SBATCH --error=/home/gaeunyim/LMOps/minillm/results/gpt2/train/gpt2_logs/error/760_to_340.out 
 
 #! /bin/bash
 

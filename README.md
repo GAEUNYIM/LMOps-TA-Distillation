@@ -6,9 +6,9 @@ This project is a replication of the [MiniLLM](https://arxiv.org/abs/2306.08543)
 In addition to replicating the training process of MiniLLM, this project further improves its performance by incorporating the [TAKD](https://arxiv.org/abs/1902.03393) (Teacher Assistant Knowledge Distillation) framework. One of the most critical challenges in knowledge distillation from a teacher model to a student model is the significant performance degradation due to the limited number of parameters in the student model compared to the teacher. To address this, the TAKD approach introduces an intermediate model, known as the Teacher Assistant (TA), which has fewer parameters than the teacher but more than the student. By using the TA model as a bridge, TAKD performs multi-stage distillation, which helps transfer knowledge more effectively and mitigates the capacity gap between teacher and student models.
 
 ## 1. Environmental Setup
-1. Connect to the server with GPUs
-We will use [DRAC](https://alliancecan.ca/en/search?keywords=ssh) (Digital Alliance Canada Cluster) to run this experiment. Create your account, and connect to server with ssh to use GPU.
-2. Create your own virtual environment in the server
+1. Connect to the server with GPUs.
+We will use [DRAC](https://alliancecan.ca/en/search?keywords=ssh) (Digital Alliance Canada Cluster) to run this experiment. Create your account, and connect to server with ssh to use GPU by following the instruction of the website.
+2. Create your own virtual environment in the server.
 ```
 module load python/3.10
 virtualenv --no-download {ENV_NAME}
@@ -25,9 +25,10 @@ git clone https://github.com/GAEUNYIM/LMOps-TA-Distillation.git
 ```
 # dataset
 huggingface-cli download MiniLLM/dolly --repo-type dataset --local-dir {BASE_PATH}/LMOps-TA-Distillation/data/dolly/
+
 # ckpt of teacher model (1.2B)
-# gpt2-large model
 huggingface-cli download gpt2-large --repo-type model --local-dir {BASE_PATH}/LMOps-TA-Distillation/checkpoints/gpt2-large
+
 # init of student model (120M)
 huggingface-cli download MiniLLM/init-gpt2-120M --repo-type model --local-dir {BASE_PATH}/LMOps-TA-Distillation/checkpoints/init-gpt2-120M
 ```

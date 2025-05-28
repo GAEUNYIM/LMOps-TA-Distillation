@@ -13,15 +13,15 @@ Download the dataset, and pre-existing checkpoints or original code from the pap
 
 ## 2. Replication of MiniLLM
 1. Clone this repository in your own path.
-`
+```
 git clone https://github.com/GAEUNYIM/LMOps-TA-Distillation.git
-`
+```
 2. Train the student model using the following scripts. 
-`
+```
 sbatch {BASE_PATH}/LMOps-TA-Distillation/MiniLLM/scripts/gpt2/ours/ours_train_gpt2_{TEACHER_SIZE}_to_{STUDENT_SIZE}.sh
-`
+```
 It will take at most 10 hours for each student models by using the following resources. Make sure that your script has proper option at the top of the bash file.
-`
+```
 #!/bin/sh
 #SBATCH --job-name=miniLLM
 #SBATCH --gres=gpu:v100l:4
@@ -31,15 +31,15 @@ It will take at most 10 hours for each student models by using the following res
 #SBATCH --mem=64G
 #SBATCH --output={BASE_PATH}/LMOps-TA-Distillation/MiniLLM/results/gpt2/train/gpt2_logs/{TEACHER_SIZE}_to_{STUDENT_SIZE}.out 
 #SBATCH --error=/home/gaeunyim/LMOps/minillm/results/gpt2/train/gpt2_logs/error/{TEACHER_SIZE}_to_{STUDENT_SIZE}.out
-`
+```
 3. You can see the checkpoint file after finishing the training
-`
+```
 cd {BASE_PATH}/results/gpt2/train/minillm
-`
+```
 4. Evaluate the student model 
-`
+```
 sbatch {BASE_PATH}/LMOps-TA-Distillation/MiniLLM/scripts/gpt2/eval/eval_main_dolly_{TEACHER_SIZE}_to_{STUDENT_SIZE}.sh
-`
+```
 
 ## 3. Application of TAKD on MiniLLM
 

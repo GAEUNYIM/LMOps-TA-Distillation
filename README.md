@@ -85,10 +85,6 @@ sbatch {BASE_PATH}/LMOps-TA-Distillation/MiniLLM/scripts/gpt2/eval/eval_main_dol
 The table below shows the experiment results of Part 2 and Part 3. 
 - Experiment 2.A ~ 2.D showed similar results with the original paper ( +,- 0.2 of R-L Scores).
 - Experiment 3.A ~ 3.D showed applying TA model between teacher model and student model can results better R-L socre than without applyint TA model.
-  - 3.A showed that the student model of 340M results 26.3 R-L Score by distilling knowledge through one TA (760M) model, which is greater than the student model of 340M from 2.C showed 25.4 R-L Score with direct distillation.
-  - 3.B showed that the student model of 340M results 27.2 R-L Score by distilling knowledge through one TA (760M) model, which is greater than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
-  - 3.C showed that the student model of 340M results 27.0 R-L Score by distilling knowledge through one TA (340M) model, which is greater than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
-  - 3.D showed that the student model of 120M results 24.1 R-L Score by distilling knowledge through two TA (760M, and 340M) models, which is less than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
 ```
 | ExpID | Teacher Size | TA 1 Size | TA 2 Size | Student Size | R-L Score (paper) | R-L Score (experiment) |
 |-------|--------------|-----------|-----------|--------------|-------------------| -----------------------|
@@ -96,11 +92,15 @@ The table below shows the experiment results of Part 2 and Part 3.
 | 2.B   | 1.5B         | -         | -         | 760M         | 26.4              | 26.5                   |
 | 2.C   | 1.5B         | -         | -         | 340M         | 25.4              | 25.2                   |
 | 2.D   | 1.5B         | -         | -         | 120M         | 24.6              | 24.6                   |
-| 3.A   | 1.5B         | 760M      | -         | 340M         | None              | 26.3                   |
-| 3.B   | 1.5B         | 760M      | -         | 120M         | None              | 27.2                   |
-| 3.C   | 1.5B         | 340M      | -         | 120M         | None              | 27.0                   |
-| 3.D   | 1.5B         | 760M      | 340M      | 120M         | None              | 24.1                   |
+| 3.A   | 1.5B         | 760M      | -         | 340M         | None              | 26.3 ⬆️ than 2.C       |
+| 3.B   | 1.5B         | 760M      | -         | 120M         | None              | 27.2 ⬆️ than 2.D       |
+| 3.C   | 1.5B         | 340M      | -         | 120M         | None              | 27.0 ⬆️ than 2.D       |
+| 3.D   | 1.5B         | 760M      | 340M      | 120M         | None              | 24.1 ⬇️ than 2.D       |
 ```
+- 3.A showed that the student model of 340M results 26.3 R-L Score by distilling knowledge through **one TA (760M) model**, which is **greater** than the student model of 340M from 2.C showed 25.4 R-L Score with direct distillation.
+- 3.B showed that the student model of 340M results 27.2 R-L Score by distilling knowledge through **one TA (760M) model**, which is **greater** than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
+- 3.C showed that the student model of 340M results 27.0 R-L Score by distilling knowledge through **one TA (340M) model**, which is **greater** than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
+- 3.D showed that the student model of 120M results 24.1 R-L Score by distilling knowledge through **two TA (760M, and 340M) models**, which is **less** than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
 ## Part 5. Analysis
 Provide insightful explanations, any differences
 

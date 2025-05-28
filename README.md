@@ -88,7 +88,8 @@ The table below shows the experiment results of Part 2 and Part 3.
   - 3.A showed that the student model of 340M results 26.3 R-L Score by distilling knowledge through one TA (760M) model, which is greater than the student model of 340M from 2.C showed 25.4 R-L Score with direct distillation.
   - 3.B showed that the student model of 340M results 27.2 R-L Score by distilling knowledge through one TA (760M) model, which is greater than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
   - 3.C showed that the student model of 340M results 27.0 R-L Score by distilling knowledge through one TA (340M) model, which is greater than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
-  - 3.D showed that the student model of 120M results 24.1 R-L Score by distilling knowledge through two TA (760M, and 340M) models, which is less than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation. 
+  - 3.D showed that the student model of 120M results 24.1 R-L Score by distilling knowledge through two TA (760M, and 340M) models, which is less than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
+```
 | ExpID | Teacher Size | TA 1 Size | TA 2 Size | Student Size | R-L Score (paper) | R-L Score (experiment) |
 |-------|--------------|-----------|-----------|--------------|-------------------| -----------------------|
 | 2.A   | 1.5B         | -         | -         | -            | 27.6              | 27.4                   |
@@ -99,7 +100,7 @@ The table below shows the experiment results of Part 2 and Part 3.
 | 3.B   | 1.5B         | 760M      | -         | 120M         | None              | 27.2                   |
 | 3.C   | 1.5B         | 340M      | -         | 120M         | None              | 27.0                   |
 | 3.D   | 1.5B         | 760M      | 340M      | 120M         | None              | 24.1                   |
-
+```
 ## Part 5. Analysis
 Provide insightful explanations, any differences
 

@@ -102,4 +102,11 @@ The table below shows the experiment results of Part 2 and Part 3.
 - 3.C showed that the student model of 340M results 27.0 R-L Score by distilling knowledge through **one TA (340M) model**, which is **greater** than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
 - 3.D showed that the student model of 120M results 24.1 R-L Score by distilling knowledge through **two TA (760M, and 340M) models**, which is **less** than the student model of 120M from 2.D showed 24.6 R-L Score with direct distillation.
 ## Part 5. Analysis
-Based on the results in Part 4, we can observe that the experiments 2.A ~ 2.D showed our replication process of MiniLLM worked almost same performances with the original paper. Additionally, we proved that distilling knowledge through utilizing TA model, which has intermediate number of parameters between teacher and studnet, can perform bettern than distilling knowledge directly from the teacher to student through the experiment 3.A ~ 3.C. Howver, one insightful observation was that distilling knowledge with more than 1 TA can destroy the performance by reffering theresults of 3.D. One hypothesis of this interesting results is that there might be information loss while distilling knowledge itself, so that more thatn one bridging caused additional loss through the entire distilling process.
+- Based on the results in Part 4, we can observe that the experiments 2.A ~ 2.D showed our replication process of MiniLLM worked almost same performances with the original paper.
+- Additionally, we proved that distilling knowledge through utilizing TA model, which has intermediate number of parameters between teacher and studnet, can perform bettern than distilling knowledge directly from the teacher to student through the experiment 3.A ~ 3.C.
+- Howver, one insightful observation was that distilling knowledge with more than 1 TA can destroy the performance by reffering theresults of 3.D.
+- One hypothesis of this interesting results is that there might be information loss while distilling knowledge itself, so that more thatn one bridging caused additional loss through the entire distilling process.
+
+## References
+- Gu, Yuxian, et al. "MiniLLM: Knowledge distillation of large language models." arXiv preprint arXiv:2306.08543 (2023).
+- Mirzadeh, Seyed Iman, et al. "Improved knowledge distillation via teacher assistant." Proceedings of the AAAI conference on artificial intelligence. Vol. 34. No. 04. 2020.

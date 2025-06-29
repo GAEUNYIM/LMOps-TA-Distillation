@@ -14,6 +14,12 @@ export CUDA_HOME=/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/
 export PATH=$CUDA_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 
+echo "==== ENV CHECK ===="
+source ~/GAEUN/bin/activate
+which python
+which torchrun
+python -c "import torch; print('torch version:', torch.__version__)"
+
 MASTER_ADDR=localhost
 MASTER_PORT=${2-2012}
 NNODES=1
@@ -108,6 +114,9 @@ export NCCL_DEBUG=""
 export WANDB_DISABLED=True
 export TF_CPP_MIN_LOG_LEVEL=3
 export PYTHONPATH=${BASE_PATH}
+
+source ~/GAEUN/bin/activate
+
 CMD="torchrun ${DISTRIBUTED_ARGS} ${BASE_PATH}/train_minillm.py ${OPTS} $@"
 
 echo ${CMD}

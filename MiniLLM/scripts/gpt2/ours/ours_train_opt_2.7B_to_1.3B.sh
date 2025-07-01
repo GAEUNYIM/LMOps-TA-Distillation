@@ -117,7 +117,7 @@ export PYTHONPATH=${BASE_PATH}
 
 source ~/GAEUN/bin/activate
 
-CMD="torchrun ${DISTRIBUTED_ARGS} ${BASE_PATH}/train_minillm.py ${OPTS} $@"
+CMD="torchrun ${DISTRIBUTED_ARGS} /scratch/gaeunyim/LMOps-TA-Distillation/MiniLLM/train_minillm.py ${OPTS} $@"
 
 echo ${CMD}
 echo "PYTHONPATH=${PYTHONPATH}"

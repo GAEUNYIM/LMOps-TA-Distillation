@@ -1,5 +1,80 @@
-/usr/bin/which: no torchrun in (/home/gaeunyim/GAEUN/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/cudacore/11.8.0/bin:/home/gaeunyim/GAEUN/bin:/home/gaeunyim/bin:/opt/software/slurm/bin:/home/gaeunyim/.vscode-server/cli/servers/Stable-dfaf44141ea9deb3b4096f7cd6d24e00c147a4b1/server/bin/remote-cli:/home/gaeunyim/bin:/home/gaeunyim/.local/bin:/home/gaeunyim/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/mii/1.1.2/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Core/flexiblascore/3.3.1/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcc12/openmpi/4.1.5/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/ucc/1.2.0/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/pmix/4.2.4/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/libfabric/1.18.0/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/ucx/1.14.1/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/hwloc/2.9.1/sbin:/cvmfs/soft.computecanada.ca/easybuild/software/2023/x86-64-v3/Compiler/gcccore/hwloc/2.9.1/bin:/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/x86_64-pc-linux-gnu/gcc-bin/12:/cvmfs/soft.computecanada.ca/easybuild/bin:/cvmfs/soft.computecanada.ca/custom/bin:/cvmfs/soft.computecanada.ca/gentoo/2023/x86-64-v3/usr/bin:/cvmfs/soft.computecanada.ca/custom/bin/computecanada:/opt/software/slurm/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin)
+/home/gaeunyim/GAEUN/lib/python3.10/site-packages/torch/_subclasses/functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /shared_tmp/build_wheels_tmp.115664/python-3.10/torch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+W0629 16:44:44.172000 363077 torch/distributed/run.py:792] 
+W0629 16:44:44.172000 363077 torch/distributed/run.py:792] *****************************************
+W0629 16:44:44.172000 363077 torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0629 16:44:44.172000 363077 torch/distributed/run.py:792] *****************************************
+[default1]:/home/gaeunyim/GAEUN/lib/python3.10/site-packages/torch/_subclasses/functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /shared_tmp/build_wheels_tmp.115664/python-3.10/torch/torch/csrc/utils/tensor_numpy.cpp:81.)
+[default1]:  cpu = _conversion_method_template(device=torch.device("cpu"))
+[default2]:/home/gaeunyim/GAEUN/lib/python3.10/site-packages/torch/_subclasses/functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /shared_tmp/build_wheels_tmp.115664/python-3.10/torch/torch/csrc/utils/tensor_numpy.cpp:81.)
+[default2]:  cpu = _conversion_method_template(device=torch.device("cpu"))
+[default0]:/home/gaeunyim/GAEUN/lib/python3.10/site-packages/torch/_subclasses/functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /shared_tmp/build_wheels_tmp.115664/python-3.10/torch/torch/csrc/utils/tensor_numpy.cpp:81.)
+[default0]:  cpu = _conversion_method_template(device=torch.device("cpu"))
+[default3]:/home/gaeunyim/GAEUN/lib/python3.10/site-packages/torch/_subclasses/functional_tensor.py:275: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /shared_tmp/build_wheels_tmp.115664/python-3.10/torch/torch/csrc/utils/tensor_numpy.cpp:81.)
+[default3]:  cpu = _conversion_method_template(device=torch.device("cpu"))
+[default1]:Traceback (most recent call last):
+[default1]:  File "/scratch/gaeunyim/LMOps-TA-Distillation/MiniLLM/train_minillm.py", line 5, in <module>
+[default1]:    from accelerate import init_empty_weights
+[default1]:ModuleNotFoundError: No module named 'accelerate'
+[default2]:Traceback (most recent call last):
+[default2]:  File "/scratch/gaeunyim/LMOps-TA-Distillation/MiniLLM/train_minillm.py", line 5, in <module>
+[default2]:    from accelerate import init_empty_weights
+[default2]:ModuleNotFoundError: No module named 'accelerate'
+[default0]:Traceback (most recent call last):
+[default0]:  File "/scratch/gaeunyim/LMOps-TA-Distillation/MiniLLM/train_minillm.py", line 5, in <module>
+[default0]:    from accelerate import init_empty_weights
+[default0]:ModuleNotFoundError: No module named 'accelerate'
+[default3]:Traceback (most recent call last):
+[default3]:  File "/scratch/gaeunyim/LMOps-TA-Distillation/MiniLLM/train_minillm.py", line 5, in <module>
+[default3]:    from accelerate import init_empty_weights
+[default3]:ModuleNotFoundError: No module named 'accelerate'
+E0629 16:44:46.493000 363077 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 363106) of binary: /home/gaeunyim/GAEUN/bin/python
 Traceback (most recent call last):
-  File "<string>", line 1, in <module>
-ModuleNotFoundError: No module named 'torch'
-/localscratch/spool/slurmd/job45437122/slurm_script: line 125: torchrun: command not found
+  File "/home/gaeunyim/GAEUN/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/gaeunyim/GAEUN/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/home/gaeunyim/GAEUN/lib/python3.10/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/home/gaeunyim/GAEUN/lib/python3.10/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/home/gaeunyim/GAEUN/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/gaeunyim/GAEUN/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/scratch/gaeunyim/LMOps-TA-Distillation/MiniLLM/train_minillm.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-06-29_16:44:46
+  host      : ng30905.narval.calcul.quebec
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 363107)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2025-06-29_16:44:46
+  host      : ng30905.narval.calcul.quebec
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 363108)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2025-06-29_16:44:46
+  host      : ng30905.narval.calcul.quebec
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 363109)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-06-29_16:44:46
+  host      : ng30905.narval.calcul.quebec
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 363106)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
